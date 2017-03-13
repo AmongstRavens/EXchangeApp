@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		973EE8421E769A3F0026A063 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 973EE8411E769A3F0026A063 /* GoogleService-Info.plist */; };
+		973EE8441E769BD80026A063 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973EE8431E769BD80026A063 /* SignUpViewController.swift */; };
+		973EE8461E76A0020026A063 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973EE8451E76A0020026A063 /* LogInViewController.swift */; };
+		973EE8481E76A04F0026A063 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973EE8471E76A04F0026A063 /* StartViewController.swift */; };
+		973EE84A1E76A20A0026A063 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973EE8491E76A20A0026A063 /* extensions.swift */; };
 		97A431561E70C706007F9103 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A431551E70C706007F9103 /* SideBarViewController.swift */; };
 		97A431581E70C773007F9103 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A431571E70C773007F9103 /* InitialViewController.swift */; };
 		97D47D4F1E70C607008B68E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D47D4E1E70C607008B68E5 /* AppDelegate.swift */; };
@@ -21,6 +26,11 @@
 /* Begin PBXFileReference section */
 		651D85F59E8DFFF79C5E8DAA /* Pods-EXchangeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EXchangeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EXchangeApp/Pods-EXchangeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7BF35064EF19BAF813F0D36D /* Pods-EXchangeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EXchangeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EXchangeApp/Pods-EXchangeApp.release.xcconfig"; sourceTree = "<group>"; };
+		973EE8411E769A3F0026A063 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		973EE8431E769BD80026A063 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		973EE8451E76A0020026A063 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		973EE8471E76A04F0026A063 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		973EE8491E76A20A0026A063 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		97A431551E70C706007F9103 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		97A431571E70C773007F9103 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialViewController.swift; path = ../InitialViewController.swift; sourceTree = "<group>"; };
 		97D47D4B1E70C607008B68E5 /* EXchangeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EXchangeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +59,7 @@
 		97D47D421E70C607008B68E5 = {
 			isa = PBXGroup;
 			children = (
+				973EE8411E769A3F0026A063 /* GoogleService-Info.plist */,
 				97D47D4D1E70C607008B68E5 /* EXchangeApp */,
 				97D47D4C1E70C607008B68E5 /* Products */,
 				BDBB806845B526A983F3E545 /* Pods */,
@@ -71,6 +82,10 @@
 				97D47D4E1E70C607008B68E5 /* AppDelegate.swift */,
 				97D47D501E70C607008B68E5 /* ViewController.swift */,
 				97D47D521E70C607008B68E5 /* Main.storyboard */,
+				973EE8471E76A04F0026A063 /* StartViewController.swift */,
+				973EE8451E76A0020026A063 /* LogInViewController.swift */,
+				973EE8431E769BD80026A063 /* SignUpViewController.swift */,
+				973EE8491E76A20A0026A063 /* extensions.swift */,
 				97A431551E70C706007F9103 /* SideBarViewController.swift */,
 				97D47D581E70C607008B68E5 /* Assets.xcassets */,
 				97D47D5A1E70C607008B68E5 /* LaunchScreen.storyboard */,
@@ -161,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97D47D5C1E70C607008B68E5 /* LaunchScreen.storyboard in Resources */,
+				973EE8421E769A3F0026A063 /* GoogleService-Info.plist in Resources */,
 				97D47D591E70C607008B68E5 /* Assets.xcassets in Resources */,
 				97D47D541E70C607008B68E5 /* Main.storyboard in Resources */,
 			);
@@ -221,11 +237,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				973EE8441E769BD80026A063 /* SignUpViewController.swift in Sources */,
 				97A431581E70C773007F9103 /* InitialViewController.swift in Sources */,
 				97D47D511E70C607008B68E5 /* ViewController.swift in Sources */,
+				973EE8461E76A0020026A063 /* LogInViewController.swift in Sources */,
 				97D47D571E70C607008B68E5 /* EXchangeApp.xcdatamodeld in Sources */,
+				973EE84A1E76A20A0026A063 /* extensions.swift in Sources */,
 				97D47D4F1E70C607008B68E5 /* AppDelegate.swift in Sources */,
 				97A431561E70C706007F9103 /* SideBarViewController.swift in Sources */,
+				973EE8481E76A04F0026A063 /* StartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

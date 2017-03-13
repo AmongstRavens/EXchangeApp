@@ -1,17 +1,17 @@
 //
-//  ViewController.swift
+//  LogInViewController.swift
 //  EXchangeApp
 //
-//  Created by Sergey on 3/9/17.
+//  Created by Sergey on 3/13/17.
 //  Copyright © 2017 Sergey. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-}
 
+}
