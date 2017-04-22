@@ -12,6 +12,7 @@ import UIKit
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextFiled: UITextField!
     
@@ -26,7 +27,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.isSecureTextEntry = true
         passwordTextField.reloadInputViews()
         
-        createGradientLayer(for: view)
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.size.width / 2;
+        avatarImageView.clipsToBounds = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
     
@@ -53,9 +58,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 
                 if error == nil {
                     print("You have successfully signed up")
-                    //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
-                    
-                    self.performSegue(withIdentifier: "SignUp_Succesful", sender: self)
+                    self.performSegue(withIdentifier: "Show_App", sender: self)
                     
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -69,8 +72,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
     
     

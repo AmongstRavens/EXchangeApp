@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import SWRevealViewController
 
 extension UIViewController{
+    
     func hideKeyboardWhenTappedAround(for view: UIView) {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -27,5 +29,13 @@ extension UIViewController{
         gradientLayer.colors = [UIColor.black.cgColor, UIColor.white.cgColor]
         gradientLayer.zPosition = -1
         view.layer.addSublayer(gradientLayer)
+    }
+    
+    func addButtonGestureRecognizer(for item: UIBarButtonItem){
+        if revealViewController() != nil {
+            item.target = revealViewController()
+            item.action = #selector(SWRevealViewController.revealToggle(_:))
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
 }
