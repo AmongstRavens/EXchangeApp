@@ -26,6 +26,7 @@ class LogInViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
+     
     }
     
     @IBAction func signInButtonPressed(_ sender: Any) {

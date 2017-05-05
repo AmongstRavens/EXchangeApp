@@ -8,20 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		97270B6D1E96886E00B49622 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97270B6C1E96886E00B49622 /* MenuViewController.swift */; };
-		973561B11EAB816600F966DF /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973561B01EAB816600F966DF /* MainCollectionViewController.swift */; };
-		973561B31EAB81B800F966DF /* MainViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973561B21EAB81B800F966DF /* MainViewCollectionViewCell.swift */; };
 		973EE8421E769A3F0026A063 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 973EE8411E769A3F0026A063 /* GoogleService-Info.plist */; };
 		973EE8441E769BD80026A063 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973EE8431E769BD80026A063 /* SignUpViewController.swift */; };
 		973EE8461E76A0020026A063 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973EE8451E76A0020026A063 /* LogInViewController.swift */; };
 		973EE8481E76A04F0026A063 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973EE8471E76A04F0026A063 /* StartViewController.swift */; };
 		973EE84A1E76A20A0026A063 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973EE8491E76A20A0026A063 /* extensions.swift */; };
 		976D50CA1EA539F3003B7621 /* User_class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976D50C91EA539F3003B7621 /* User_class.swift */; };
+		9782B9801EB78A4800BAFF1E /* OffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B97F1EB78A4800BAFF1E /* OffersViewController.swift */; };
+		9782B9821EB7913200BAFF1E /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B9811EB7913200BAFF1E /* MenuTableViewCell.swift */; };
+		9782B9851EB7A89800BAFF1E /* OfferCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9782B9841EB7A89800BAFF1E /* OfferCollectionViewCell.swift */; };
+		97B0D1AB1EABBAE1002DC710 /* MainCollectionViewControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B0D1AA1EABBAE1002DC710 /* MainCollectionViewControllerLayout.swift */; };
 		97D47D4F1E70C607008B68E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D47D4E1E70C607008B68E5 /* AppDelegate.swift */; };
 		97D47D511E70C607008B68E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D47D501E70C607008B68E5 /* ViewController.swift */; };
 		97D47D541E70C607008B68E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D47D521E70C607008B68E5 /* Main.storyboard */; };
 		97D47D571E70C607008B68E5 /* EXchangeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97D47D551E70C607008B68E5 /* EXchangeApp.xcdatamodeld */; };
 		97D47D591E70C607008B68E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D47D581E70C607008B68E5 /* Assets.xcassets */; };
 		97D47D5C1E70C607008B68E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D47D5A1E70C607008B68E5 /* LaunchScreen.storyboard */; };
+		97DDCB451EBB9CB6000922C5 /* SanFranciscoDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB341EBB9A00000922C5 /* SanFranciscoDisplay-Medium.otf */; };
+		97DDCB461EBB9CB6000922C5 /* SanFranciscoDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB351EBB9A00000922C5 /* SanFranciscoDisplay-Regular.otf */; };
+		97DDCB471EBB9CB6000922C5 /* SanFranciscoDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB361EBB9A00000922C5 /* SanFranciscoDisplay-Semibold.otf */; };
+		97DDCB481EBB9CB6000922C5 /* SanFranciscoDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB371EBB9A00000922C5 /* SanFranciscoDisplay-Thin.otf */; };
+		97DDCB491EBB9CB6000922C5 /* SanFranciscoDisplay-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB381EBB9A00000922C5 /* SanFranciscoDisplay-Ultralight.otf */; };
+		97DDCB4A1EBB9CB6000922C5 /* SanFranciscoText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB391EBB9A00000922C5 /* SanFranciscoText-Bold.otf */; };
+		97DDCB4B1EBB9CB6000922C5 /* SanFranciscoText-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB3A1EBB9A00000922C5 /* SanFranciscoText-BoldItalic.otf */; };
+		97DDCB4C1EBB9CB6000922C5 /* SanFranciscoText-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB3B1EBB9A00000922C5 /* SanFranciscoText-Heavy.otf */; };
+		97DDCB4D1EBB9CB6000922C5 /* SanFranciscoText-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB3C1EBB9A00000922C5 /* SanFranciscoText-HeavyItalic.otf */; };
+		97DDCB4E1EBB9CB6000922C5 /* SanFranciscoText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB3D1EBB9A00000922C5 /* SanFranciscoText-Light.otf */; };
+		97DDCB4F1EBB9CB6000922C5 /* SanFranciscoText-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB3E1EBB9A00000922C5 /* SanFranciscoText-LightItalic.otf */; };
+		97DDCB501EBB9CB6000922C5 /* SanFranciscoText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB3F1EBB9A00000922C5 /* SanFranciscoText-Medium.otf */; };
+		97DDCB511EBB9CB6000922C5 /* SanFranciscoText-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB401EBB9A00000922C5 /* SanFranciscoText-MediumItalic.otf */; };
+		97DDCB521EBB9CB6000922C5 /* SanFranciscoText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB411EBB9A00000922C5 /* SanFranciscoText-Regular.otf */; };
+		97DDCB531EBB9CB6000922C5 /* SanFranciscoText-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB421EBB9A00000922C5 /* SanFranciscoText-RegularItalic.otf */; };
+		97DDCB541EBB9CB6000922C5 /* SanFranciscoText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB431EBB9A00000922C5 /* SanFranciscoText-Semibold.otf */; };
+		97DDCB551EBB9CB6000922C5 /* SanFranciscoText-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB441EBB9A00000922C5 /* SanFranciscoText-SemiboldItalic.otf */; };
+		97DDCB561EBB9CB6000922C5 /* SanFranciscoDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB311EBB99F5000922C5 /* SanFranciscoDisplay-Bold.otf */; };
+		97DDCB571EBB9CB6000922C5 /* SanFranciscoDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB321EBB99F5000922C5 /* SanFranciscoDisplay-Heavy.otf */; };
+		97DDCB581EBB9CB6000922C5 /* SanFranciscoDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB331EBB99F5000922C5 /* SanFranciscoDisplay-Light.otf */; };
+		97DDCB591EBB9CB6000922C5 /* SanFranciscoDisplay-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 97DDCB2F1EBB99D9000922C5 /* SanFranciscoDisplay-Black.otf */; };
 		ADB088B2ECCAED5FC57EDF5E /* Pods_EXchangeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3F1AFA1358A5AA10578329 /* Pods_EXchangeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,14 +52,16 @@
 		651D85F59E8DFFF79C5E8DAA /* Pods-EXchangeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EXchangeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EXchangeApp/Pods-EXchangeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7BF35064EF19BAF813F0D36D /* Pods-EXchangeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EXchangeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EXchangeApp/Pods-EXchangeApp.release.xcconfig"; sourceTree = "<group>"; };
 		97270B6C1E96886E00B49622 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		973561B01EAB816600F966DF /* MainCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
-		973561B21EAB81B800F966DF /* MainViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		973EE8411E769A3F0026A063 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		973EE8431E769BD80026A063 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		973EE8451E76A0020026A063 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		973EE8471E76A04F0026A063 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		973EE8491E76A20A0026A063 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		976D50C91EA539F3003B7621 /* User_class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User_class.swift; sourceTree = "<group>"; };
+		9782B97F1EB78A4800BAFF1E /* OffersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersViewController.swift; sourceTree = "<group>"; };
+		9782B9811EB7913200BAFF1E /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		9782B9841EB7A89800BAFF1E /* OfferCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferCollectionViewCell.swift; sourceTree = "<group>"; };
+		97B0D1AA1EABBAE1002DC710 /* MainCollectionViewControllerLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewControllerLayout.swift; sourceTree = "<group>"; };
 		97D47D4B1E70C607008B68E5 /* EXchangeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EXchangeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D47D4E1E70C607008B68E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97D47D501E70C607008B68E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +70,27 @@
 		97D47D581E70C607008B68E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97D47D5B1E70C607008B68E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97D47D5D1E70C607008B68E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97DDCB2F1EBB99D9000922C5 /* SanFranciscoDisplay-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Black.otf"; sourceTree = "<group>"; };
+		97DDCB311EBB99F5000922C5 /* SanFranciscoDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Bold.otf"; sourceTree = "<group>"; };
+		97DDCB321EBB99F5000922C5 /* SanFranciscoDisplay-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Heavy.otf"; sourceTree = "<group>"; };
+		97DDCB331EBB99F5000922C5 /* SanFranciscoDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Light.otf"; sourceTree = "<group>"; };
+		97DDCB341EBB9A00000922C5 /* SanFranciscoDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Medium.otf"; sourceTree = "<group>"; };
+		97DDCB351EBB9A00000922C5 /* SanFranciscoDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Regular.otf"; sourceTree = "<group>"; };
+		97DDCB361EBB9A00000922C5 /* SanFranciscoDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Semibold.otf"; sourceTree = "<group>"; };
+		97DDCB371EBB9A00000922C5 /* SanFranciscoDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Thin.otf"; sourceTree = "<group>"; };
+		97DDCB381EBB9A00000922C5 /* SanFranciscoDisplay-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Ultralight.otf"; sourceTree = "<group>"; };
+		97DDCB391EBB9A00000922C5 /* SanFranciscoText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Bold.otf"; sourceTree = "<group>"; };
+		97DDCB3A1EBB9A00000922C5 /* SanFranciscoText-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-BoldItalic.otf"; sourceTree = "<group>"; };
+		97DDCB3B1EBB9A00000922C5 /* SanFranciscoText-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Heavy.otf"; sourceTree = "<group>"; };
+		97DDCB3C1EBB9A00000922C5 /* SanFranciscoText-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-HeavyItalic.otf"; sourceTree = "<group>"; };
+		97DDCB3D1EBB9A00000922C5 /* SanFranciscoText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Light.otf"; sourceTree = "<group>"; };
+		97DDCB3E1EBB9A00000922C5 /* SanFranciscoText-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-LightItalic.otf"; sourceTree = "<group>"; };
+		97DDCB3F1EBB9A00000922C5 /* SanFranciscoText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Medium.otf"; sourceTree = "<group>"; };
+		97DDCB401EBB9A00000922C5 /* SanFranciscoText-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-MediumItalic.otf"; sourceTree = "<group>"; };
+		97DDCB411EBB9A00000922C5 /* SanFranciscoText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Regular.otf"; sourceTree = "<group>"; };
+		97DDCB421EBB9A00000922C5 /* SanFranciscoText-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-RegularItalic.otf"; sourceTree = "<group>"; };
+		97DDCB431EBB9A00000922C5 /* SanFranciscoText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-Semibold.otf"; sourceTree = "<group>"; };
+		97DDCB441EBB9A00000922C5 /* SanFranciscoText-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoText-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		DD3F1AFA1358A5AA10578329 /* Pods_EXchangeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EXchangeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -63,8 +109,8 @@
 		973561AB1EAB7FC000F966DF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				97270B6C1E96886E00B49622 /* MenuViewController.swift */,
-				973561AF1EAB80A900F966DF /* New Group */,
+				9782B9831EB7922000BAFF1E /* MenuTableView */,
+				973561AF1EAB80A900F966DF /* Offers */,
 				97D47D501E70C607008B68E5 /* ViewController.swift */,
 				973EE8471E76A04F0026A063 /* StartViewController.swift */,
 				973EE8451E76A0020026A063 /* LogInViewController.swift */,
@@ -86,6 +132,7 @@
 		973561AE1EAB800D00F966DF /* Additionals */ = {
 			isa = PBXGroup;
 			children = (
+				97DDCB301EBB99DD000922C5 /* Resources */,
 				97D47D581E70C607008B68E5 /* Assets.xcassets */,
 				97D47D5A1E70C607008B68E5 /* LaunchScreen.storyboard */,
 				97D47D5D1E70C607008B68E5 /* Info.plist */,
@@ -94,13 +141,31 @@
 			name = Additionals;
 			sourceTree = "<group>";
 		};
-		973561AF1EAB80A900F966DF /* New Group */ = {
+		973561AF1EAB80A900F966DF /* Offers */ = {
 			isa = PBXGroup;
 			children = (
-				973561B01EAB816600F966DF /* MainCollectionViewController.swift */,
-				973561B21EAB81B800F966DF /* MainViewCollectionViewCell.swift */,
+				9782B9841EB7A89800BAFF1E /* OfferCollectionViewCell.swift */,
+				9782B97F1EB78A4800BAFF1E /* OffersViewController.swift */,
 			);
-			name = "New Group";
+			name = Offers;
+			sourceTree = "<group>";
+		};
+		9782B97E1EB78A0E00BAFF1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				97B0D1AA1EABBAE1002DC710 /* MainCollectionViewControllerLayout.swift */,
+				97D47D521E70C607008B68E5 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9782B9831EB7922000BAFF1E /* MenuTableView */ = {
+			isa = PBXGroup;
+			children = (
+				9782B9811EB7913200BAFF1E /* MenuTableViewCell.swift */,
+				97270B6C1E96886E00B49622 /* MenuViewController.swift */,
+			);
+			name = MenuTableView;
 			sourceTree = "<group>";
 		};
 		97D47D421E70C607008B68E5 = {
@@ -125,12 +190,40 @@
 		97D47D4D1E70C607008B68E5 /* EXchangeApp */ = {
 			isa = PBXGroup;
 			children = (
-				97D47D521E70C607008B68E5 /* Main.storyboard */,
-				973561AB1EAB7FC000F966DF /* Controller */,
 				973561AD1EAB7FF700F966DF /* Model */,
+				9782B97E1EB78A0E00BAFF1E /* View */,
+				973561AB1EAB7FC000F966DF /* Controller */,
 				973561AE1EAB800D00F966DF /* Additionals */,
 			);
 			path = EXchangeApp;
+			sourceTree = "<group>";
+		};
+		97DDCB301EBB99DD000922C5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				97DDCB341EBB9A00000922C5 /* SanFranciscoDisplay-Medium.otf */,
+				97DDCB351EBB9A00000922C5 /* SanFranciscoDisplay-Regular.otf */,
+				97DDCB361EBB9A00000922C5 /* SanFranciscoDisplay-Semibold.otf */,
+				97DDCB371EBB9A00000922C5 /* SanFranciscoDisplay-Thin.otf */,
+				97DDCB381EBB9A00000922C5 /* SanFranciscoDisplay-Ultralight.otf */,
+				97DDCB391EBB9A00000922C5 /* SanFranciscoText-Bold.otf */,
+				97DDCB3A1EBB9A00000922C5 /* SanFranciscoText-BoldItalic.otf */,
+				97DDCB3B1EBB9A00000922C5 /* SanFranciscoText-Heavy.otf */,
+				97DDCB3C1EBB9A00000922C5 /* SanFranciscoText-HeavyItalic.otf */,
+				97DDCB3D1EBB9A00000922C5 /* SanFranciscoText-Light.otf */,
+				97DDCB3E1EBB9A00000922C5 /* SanFranciscoText-LightItalic.otf */,
+				97DDCB3F1EBB9A00000922C5 /* SanFranciscoText-Medium.otf */,
+				97DDCB401EBB9A00000922C5 /* SanFranciscoText-MediumItalic.otf */,
+				97DDCB411EBB9A00000922C5 /* SanFranciscoText-Regular.otf */,
+				97DDCB421EBB9A00000922C5 /* SanFranciscoText-RegularItalic.otf */,
+				97DDCB431EBB9A00000922C5 /* SanFranciscoText-Semibold.otf */,
+				97DDCB441EBB9A00000922C5 /* SanFranciscoText-SemiboldItalic.otf */,
+				97DDCB311EBB99F5000922C5 /* SanFranciscoDisplay-Bold.otf */,
+				97DDCB321EBB99F5000922C5 /* SanFranciscoDisplay-Heavy.otf */,
+				97DDCB331EBB99F5000922C5 /* SanFranciscoDisplay-Light.otf */,
+				97DDCB2F1EBB99D9000922C5 /* SanFranciscoDisplay-Black.otf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		BDBB806845B526A983F3E545 /* Pods */ = {
@@ -213,6 +306,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97DDCB451EBB9CB6000922C5 /* SanFranciscoDisplay-Medium.otf in Resources */,
+				97DDCB461EBB9CB6000922C5 /* SanFranciscoDisplay-Regular.otf in Resources */,
+				97DDCB471EBB9CB6000922C5 /* SanFranciscoDisplay-Semibold.otf in Resources */,
+				97DDCB481EBB9CB6000922C5 /* SanFranciscoDisplay-Thin.otf in Resources */,
+				97DDCB491EBB9CB6000922C5 /* SanFranciscoDisplay-Ultralight.otf in Resources */,
+				97DDCB4A1EBB9CB6000922C5 /* SanFranciscoText-Bold.otf in Resources */,
+				97DDCB4B1EBB9CB6000922C5 /* SanFranciscoText-BoldItalic.otf in Resources */,
+				97DDCB4C1EBB9CB6000922C5 /* SanFranciscoText-Heavy.otf in Resources */,
+				97DDCB4D1EBB9CB6000922C5 /* SanFranciscoText-HeavyItalic.otf in Resources */,
+				97DDCB4E1EBB9CB6000922C5 /* SanFranciscoText-Light.otf in Resources */,
+				97DDCB4F1EBB9CB6000922C5 /* SanFranciscoText-LightItalic.otf in Resources */,
+				97DDCB501EBB9CB6000922C5 /* SanFranciscoText-Medium.otf in Resources */,
+				97DDCB511EBB9CB6000922C5 /* SanFranciscoText-MediumItalic.otf in Resources */,
+				97DDCB521EBB9CB6000922C5 /* SanFranciscoText-Regular.otf in Resources */,
+				97DDCB531EBB9CB6000922C5 /* SanFranciscoText-RegularItalic.otf in Resources */,
+				97DDCB541EBB9CB6000922C5 /* SanFranciscoText-Semibold.otf in Resources */,
+				97DDCB551EBB9CB6000922C5 /* SanFranciscoText-SemiboldItalic.otf in Resources */,
+				97DDCB561EBB9CB6000922C5 /* SanFranciscoDisplay-Bold.otf in Resources */,
+				97DDCB571EBB9CB6000922C5 /* SanFranciscoDisplay-Heavy.otf in Resources */,
+				97DDCB581EBB9CB6000922C5 /* SanFranciscoDisplay-Light.otf in Resources */,
+				97DDCB591EBB9CB6000922C5 /* SanFranciscoDisplay-Black.otf in Resources */,
 				97D47D5C1E70C607008B68E5 /* LaunchScreen.storyboard in Resources */,
 				973EE8421E769A3F0026A063 /* GoogleService-Info.plist in Resources */,
 				97D47D591E70C607008B68E5 /* Assets.xcassets in Resources */,
@@ -275,17 +389,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9782B9851EB7A89800BAFF1E /* OfferCollectionViewCell.swift in Sources */,
 				973EE8441E769BD80026A063 /* SignUpViewController.swift in Sources */,
-				973561B11EAB816600F966DF /* MainCollectionViewController.swift in Sources */,
-				973561B31EAB81B800F966DF /* MainViewCollectionViewCell.swift in Sources */,
 				97D47D511E70C607008B68E5 /* ViewController.swift in Sources */,
+				9782B9821EB7913200BAFF1E /* MenuTableViewCell.swift in Sources */,
 				973EE8461E76A0020026A063 /* LogInViewController.swift in Sources */,
 				97270B6D1E96886E00B49622 /* MenuViewController.swift in Sources */,
 				976D50CA1EA539F3003B7621 /* User_class.swift in Sources */,
 				97D47D571E70C607008B68E5 /* EXchangeApp.xcdatamodeld in Sources */,
 				973EE84A1E76A20A0026A063 /* extensions.swift in Sources */,
+				97B0D1AB1EABBAE1002DC710 /* MainCollectionViewControllerLayout.swift in Sources */,
 				97D47D4F1E70C607008B68E5 /* AppDelegate.swift in Sources */,
 				973EE8481E76A04F0026A063 /* StartViewController.swift in Sources */,
+				9782B9801EB78A4800BAFF1E /* OffersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
