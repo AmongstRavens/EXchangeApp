@@ -18,7 +18,7 @@ class OffersCollectionViewControllerLayout : UICollectionViewLayout{
     
     var delegate : OffersLayoutDelegate!
     var sizeBetweenItemsInSection : CGFloat = 10
-    private var cache = [OffersLayoutAttributes]()
+    var cache = [OffersLayoutAttributes]()
     
     private var layoutAttributes = [UICollectionViewLayoutAttributes]()
     

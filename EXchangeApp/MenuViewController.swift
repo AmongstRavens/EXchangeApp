@@ -14,6 +14,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     private let veilView = UIView()
     private let menuData : [(description : String, image : UIImage)] = [
         (description : "Offers", image : #imageLiteral(resourceName: "box")),
+        (description : "My items", image : #imageLiteral(resourceName: "box")),
         (description : "Messages", image : #imageLiteral(resourceName: "mail")),
         (description : "Settings", image : #imageLiteral(resourceName: "settings"))
     ]

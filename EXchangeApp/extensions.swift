@@ -23,7 +23,7 @@ extension UIViewController{
     
     func createGradientLayer(for view: UIView) {
         var gradientLayer : CAGradientLayer!
-        
+
         gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.bounds
         gradientLayer.colors = [UIColor.black.cgColor, UIColor.white.cgColor]
