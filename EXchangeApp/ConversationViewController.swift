@@ -69,7 +69,6 @@ class ConversationViewController: UIViewController, UITextFieldDelegate {
         
         messageYOffset += messageTextField.bounds.size.height + 20
         scrollView.addSubview(messageLabel)
-        print("-!!!\(messageLabel.text)!!!-")
         print(message)
     }
     

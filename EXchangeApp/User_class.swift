@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 class User{
-    private var profileImage : UIImage!
-    private var email : String
-    private var firstName : String
-    private var lastName : String
+    var profileImage : UIImage!
+    var avatarReference : String?
+    var email : String
+    var firstName : String
+    var lastName : String
     private var rate : Int
     
     init(image: UIImage, email: String, firstName: String, lastName : String) {
@@ -22,5 +23,9 @@ class User{
         self.lastName = lastName
         self.email = email
         rate = 0
+    }
+    
+    func addRate(){
+        self.rate += 1
     }
 }

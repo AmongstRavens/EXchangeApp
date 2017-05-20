@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 import SWRevealViewController
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    @IBOutlet weak var logOutButton: UIButton!
     private let veilView = UIView()
     private let menuData : [(description : String, image : UIImage)] = [
         (description : "Offers", image : #imageLiteral(resourceName: "box")),
@@ -31,6 +34,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         backgroundView.backgroundColor = UIColor.black
         self.menuTableView.backgroundView = backgroundView
         navigationController?.navigationBar.backgroundColor = UIColor.white
+        
+        let buttonImage = #imageLiteral(resourceName: "sign_out").withRenderingMode(.alwaysTemplate)
+        logOutButton.setBackgroundImage(buttonImage, for: .normal)
+        
+        logOutButton.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,5 +94,17 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         veilView.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         veilView.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
-
+    
+    @objc private func handleLogout(){
+        do{
+            try FIRAuth.auth()?.signOut()
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "StartNavigationController") as? UINavigationController
+            self.present(vc!, animated: true, completion: nil)
+        } catch let logOutError{
+            let alertController = UIAlertController(title: "Error", message: logOutError.localizedDescription, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }

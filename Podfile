@@ -9,4 +9,6 @@ target 'EXchangeApp' do
   pod 'SWRevealViewController', '~> 2.3'
   pod 'Firebase', '~> 3.14'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 end
