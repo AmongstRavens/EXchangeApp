@@ -42,6 +42,30 @@ extension UIViewController{
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
+    
+    func fetchImageFromUrl(inputString : String) -> UIImage{
+        if let image = cache.imageCache.object(forKey: inputString as AnyObject) as? UIImage{
+            return image
+        }
+        
+        if let url = URL(string: inputString){
+            do{
+                let imageData = try Data(contentsOf: url)
+                if let image = UIImage(data: imageData){
+                    cache.imageCache.setObject(image, forKey: inputString as AnyObject)
+                    return image
+                } else {
+                    return #imageLiteral(resourceName: "avatar")
+                }
+            } catch let error{
+                print(error)
+                return #imageLiteral(resourceName: "avatar")
+            }
+        }
+        
+        return #imageLiteral(resourceName: "avatar")
+    }
+    
 }
 
 extension String {

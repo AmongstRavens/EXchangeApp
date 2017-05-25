@@ -18,7 +18,7 @@ class OfferInfoViewController: UIViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var personNameLabel: UILabel!
     @IBOutlet weak var contactButton: UIButton!
-    
+    @IBOutlet weak var offerButton: UIButton!
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     
     var data : (title: String, image: UIImage?, description: String, time: String)!
@@ -30,6 +30,7 @@ class OfferInfoViewController: UIViewController {
     
     
     @IBAction func contactButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "Show User Info", sender: sender)
     }
     
     private func imageHeight(image : UIImage?) -> CGFloat{
@@ -42,14 +43,32 @@ class OfferInfoViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func offerButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "Show Offer Exchange", sender: sender)
+    }
+    
     private func prepareSubViews(){
+        navigationItem.title = "Item"
         titleLabel.text = data.title
         offerDescriptionLabel.text = data.description
         avatarImageView.image = #imageLiteral(resourceName: "avatar")
         offerImageView.image = data.image ?? UIImage()
-        //set person profile here
         titleLabel.sizeToFit()
         offerDescriptionLabel.sizeToFit()
         imageHeightConstraint.constant = imageHeight(image : data.image)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Offer Exchange"{
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            navigationItem.backBarButtonItem = backItem
+            let destinationVC = segue.destination as! OfferExchangeViewController
+            destinationVC.itemForExchange = (image : data.image!, item : data.title) as (image: UIImage, item: String)
+            let backButton = UIBarButtonItem()
+            backButton.title = ""
+            navigationItem.backBarButtonItem = backButton
+        }
     }
 }

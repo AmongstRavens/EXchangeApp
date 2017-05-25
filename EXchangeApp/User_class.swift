@@ -9,23 +9,18 @@
 import Foundation
 import UIKit
 
-class User{
+struct User{
     var profileImage : UIImage!
     var avatarReference : String?
-    var email : String
-    var firstName : String
-    var lastName : String
-    private var rate : Int
-    
-    init(image: UIImage, email: String, firstName: String, lastName : String) {
-        self.profileImage = image
-        self.firstName = firstName
-        self.lastName = lastName
-        self.email = email
-        rate = 0
-    }
-    
-    func addRate(){
-        self.rate += 1
-    }
+    var uid : String!
+    var email : String!
+    var name : String!
+}
+
+struct CurrentUser{
+    static var profileImage : UIImage!
+    static var avatarReference : String?
+    static var uid : String!
+    static var email : String!
+    static var name : String!
 }

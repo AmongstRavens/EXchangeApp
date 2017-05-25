@@ -7,34 +7,32 @@
 //
 
 import UIKit
+import Firebase
 
-class ConversationViewController: UIViewController, UITextFieldDelegate {
+class ConversationViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
-
     @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var conversationCollectionView: UICollectionView!
     @IBOutlet weak var messageTextField: UITextField!
-    @IBOutlet weak var scrollView: UIScrollView!
     
-    
-    enum messageSender{
-        case left
-        case right
-    }
     
     private var messageYOffset : CGFloat = 10
     var personData : (image: UIImage, name: String, lastMessage: String)!
+    var user : User!
+    var receiver : User!
+    var messages = [Message]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        receiver = User()
+        receiver.uid = "0ZwVga6ZH9SnJZaYxsgMuNBYZKO2"
         view.backgroundColor = UIColor.white
         setNavigationbar()
         messageTextField.delegate = self
         messageTextField.keyboardType = .alphabet
-        NotificationCenter.default.addObserver(self, selector: #selector(ConversationViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ConversationViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
         sendButton.addTarget(self, action: #selector(sendButtonAction(_:)), for: UIControlEvents.touchUpInside)
+        conversationCollectionView.delegate = self
+        conversationCollectionView.dataSource = self
     }
     
     private func setNavigationbar(){
@@ -44,33 +42,17 @@ class ConversationViewController: UIViewController, UITextFieldDelegate {
         barImage.tintColor = UIColor.black
         barImage.layer.cornerRadius = barImage.bounds.size.width / 2
         
-        let rightBarButton = UIBarButtonItem(customView: barImage)
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        button.setBackgroundImage(#imageLiteral(resourceName: "avatar").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.addTarget(self, action: #selector(showUserInfo(_:)), for: .touchUpInside)
+        button.layer.cornerRadius = button.bounds.size.width / 2
+        button.clipsToBounds = true
+        let rightBarButton = UIBarButtonItem(customView: button)
         navigationItem.rightBarButtonItem = rightBarButton
         
         messageTextField.tintColor = UIColor.white
     }
-    
-    private func display(message: String, sender : messageSender){
-        let messageLabel = UILabel()
-        if sender == messageSender.left{
-            messageLabel.frame = CGRect(x: 10, y: messageYOffset, width: scrollView.bounds.size.width / 2 - 15, height: heightForLabel(width: scrollView.bounds.size.width / 2 - 15, text: message) + 10)
-            messageLabel.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
-        } else {
-            let labelWidth = scrollView.bounds.size.width / 2 - 15
-            messageLabel.frame = CGRect(x: scrollView.bounds.size.width - labelWidth - 15, y: messageYOffset, width: labelWidth, height: heightForLabel(width: labelWidth, text: message) + 10)
-            messageLabel.backgroundColor = UIColor.white
-        }
-        messageLabel.numberOfLines = 20
-        messageLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
-        messageLabel.layer.borderWidth = 2
-        messageLabel.text = message
-        messageLabel.textColor = UIColor.black
-        messageLabel.font = UIFont(name: "SanFranciscoText-Regular", size: 17)
-        
-        messageYOffset += messageTextField.bounds.size.height + 20
-        scrollView.addSubview(messageLabel)
-        print(message)
-    }
+ 
     
     private func heightForLabel(width : CGFloat, text : String) -> CGFloat{
         let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
@@ -78,33 +60,64 @@ class ConversationViewController: UIViewController, UITextFieldDelegate {
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = UIFont(name: "SanFranciscoText-Regular", size: 17)
         label.text = text
-        
         label.sizeToFit()
         return label.bounds.size.height
     }
     
-  
-    
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
-    }
-    
     @objc private func sendButtonAction(_ sender : UIButton){
         messageTextField.endEditing(true)
-        if (messageTextField.text != nil){
-            display(message: messageTextField.text!, sender: messageSender.right)
+        if messageTextField.text != ""{
+            let reference = FIRDatabase.database().reference().child("Messages").childByAutoId()
+            
+            let message = Message()
+            let timestamp : NSNumber = NSNumber(value: Int(NSDate().timeIntervalSince1970))
+            let values = ["text" : messageTextField.text!, "sender" : CurrentUser.uid, "receiver" : receiver.uid, "time" : timestamp] as [String : AnyObject]
+            message.receiver = receiver.uid!
+            message.sender = CurrentUser.uid!
+            message.text = messageTextField.text!
+            message.time = timestamp
+            self.messages.append(message)
+            messageTextField.text = ""
+            self.conversationCollectionView.reloadData()
+            reference.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                if error != nil{
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let alerAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(alerAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    return
+                }
+            })
+            
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Message Cell", for: indexPath) as! MessageCollectionViewCell
+        cell.messageLabel.text = messages[indexPath.row].text
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: conversationCollectionView.bounds.size.width, height: 80)
+    }
+    
+    func showUserInfo(_ sender : UIBarButtonItem){
+        print("Succes")
+        performSegue(withIdentifier: "Show User Info", sender: sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show User Info"{
+            let destinationVC = segue.destination as! UserProfileViewController
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            navigationItem.backBarButtonItem = backItem
+            destinationVC.isFromConversation = true
         }
     }
     

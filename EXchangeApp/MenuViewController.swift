@@ -16,8 +16,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var logOutButton: UIButton!
     private let veilView = UIView()
     private let menuData : [(description : String, image : UIImage)] = [
-        (description : "Offers", image : #imageLiteral(resourceName: "box")),
-        (description : "My items", image : #imageLiteral(resourceName: "box")),
+        (description : "Items Roll", image : #imageLiteral(resourceName: "box")),
+        (description : "Offers", image : #imageLiteral(resourceName: "exchange")),
+        (description : "My items", image : #imageLiteral(resourceName: "my_items")),
         (description : "Messages", image : #imageLiteral(resourceName: "mail")),
         (description : "Settings", image : #imageLiteral(resourceName: "settings"))
     ]

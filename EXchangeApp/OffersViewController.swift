@@ -48,13 +48,11 @@ class OffersViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.title = "Offers"
         navigationController?.navigationBar.barStyle = .default
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationItem.title = ""
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -110,6 +108,9 @@ class OffersViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Offer Info"{
+            let backItem = UIBarButtonItem()
+            backItem.title = ""
+            navigationItem.backBarButtonItem = backItem
             navigationController?.navigationBar.tintColor = UIColor.black
             let indexPath = sender as! IndexPath
             let destinationVC = segue.destination as! OfferInfoViewController

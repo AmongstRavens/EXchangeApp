@@ -11,4 +11,5 @@ target 'EXchangeApp' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'IQKeyboardManagerSwift'
 end

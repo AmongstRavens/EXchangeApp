@@ -23,13 +23,14 @@ class SettingsViewController: UIViewController {
         setCustomNavigationBar()
         addButtonGestureRecognizer(for: menuButton)
         avatarButton.layer.cornerRadius = avatarButton.bounds.size.width / 2
-        
     }
     
     @IBAction func changeAvatar(_ sender: UIButton) {
+        
     }
     
     @IBAction func applyChanges(_ sender: UIButton) {
+        
     }
     
 }

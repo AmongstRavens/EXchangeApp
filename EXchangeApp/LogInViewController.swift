@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
+import SWRevealViewController
 
 class LogInViewController: UIViewController {
     
@@ -23,10 +25,7 @@ class LogInViewController: UIViewController {
         passwordTextField.keyboardType = .alphabet
         passwordTextField.isSecureTextEntry = true
         passwordTextField.reloadInputViews()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
+            }
     
     @IBAction func signInButtonPressed(_ sender: Any) {
         let password = passwordTextField.text
@@ -37,6 +36,7 @@ class LogInViewController: UIViewController {
             let passwordAlertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             passwordAlert.addAction(passwordAlertAction)
             self.present(passwordAlert, animated: true, completion: nil)
+            return
         }
         
         if (email == nil || email == ""){
@@ -44,7 +44,22 @@ class LogInViewController: UIViewController {
             let emailAlertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             emailAlert.addAction(emailAlertAction)
             self.present(emailAlert, animated: true, completion: nil)
+            return
         }
+        
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        let veilView = UIView(frame: view.frame)
+        veilView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        let width : CGFloat =  100.0
+        let height : CGFloat = 100.0
+        let xPoint : CGFloat = (veilView.bounds.size.width - width) / 2
+        let yPoint : CGFloat = (veilView.bounds.size.height - height) / 2
+        activityView.frame = CGRect(x: xPoint, y: yPoint, width: width, height: height)
+        activityView.layer.zPosition = 2
+        veilView.addSubview(activityView)
+        view.addSubview(veilView)
+        activityView.startAnimating()
         
         FIRAuth.auth()?.signIn(withEmail: email!, password: password!, completion: { (user, error) in
             if error != nil{
@@ -52,32 +67,38 @@ class LogInViewController: UIViewController {
                 let alerAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alertController.addAction(alerAction)
                 self.present(alertController, animated: true, completion: nil)
+                activityView.stopAnimating()
+                activityView.removeFromSuperview()
+                return
             }
             
-            self.performSegue(withIdentifier: "Show_App_From_Log_In", sender: self)
+            let currentUserUid = user?.uid
+            let userReference = FIRDatabase.database().reference(fromURL: "https://exchangeapp-7f50f.firebaseio.com/").child("users").child(currentUserUid!)
+            userReference.observe(.value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String : AnyObject]{
+                    CurrentUser.avatarReference = dictionary["image"] as! String
+                    CurrentUser.email = dictionary["email"] as! String
+                    CurrentUser.name = dictionary["name"] as! String
+                    CurrentUser.uid = currentUserUid!
+                }
+            }, withCancel: nil)
+            
+            activityView.stopAnimating()
+            activityView.removeFromSuperview()
+            self.startApplication()
         })
-        
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
+    private func startApplication(){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "Initial View Controller") as? SWRevealViewController{
+            present(vc, animated: true, completion: nil)
+        }
+    }
 }

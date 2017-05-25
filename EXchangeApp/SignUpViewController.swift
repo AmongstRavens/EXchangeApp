@@ -9,7 +9,7 @@
 import Firebase
 import FirebaseAuth
 import UIKit
-
+import SWRevealViewController
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -33,11 +33,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         avatarButton.layer.cornerRadius = avatarButton.bounds.size.width / 2;
         avatarButton.clipsToBounds = true
         avatarButton.addTarget(self, action: #selector(handleImageChanging), for: .touchUpInside)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(SignUpViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -76,6 +71,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             return
         }
         
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        let veilView = UIView(frame: view.frame)
+        veilView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        let width : CGFloat =  100.0
+        let height : CGFloat = 100.0
+        let xPoint : CGFloat = (veilView.bounds.size.width - width) / 2
+        let yPoint : CGFloat = (veilView.bounds.size.height - height) / 2
+        activityView.frame = CGRect(x: xPoint, y: yPoint, width: width, height: height)
+        activityView.layer.zPosition = 2
+        veilView.addSubview(activityView)
+        view.addSubview(veilView)
+        activityView.startAnimating()
+        
         
         FIRAuth.auth()?.createUser(withEmail: email!, password: password!) { (user, error) in
             
@@ -97,10 +106,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
             let imageUID = NSUUID().uuidString
             
             //reference to the storage whil will contain image
-            let storageReference = FIRStorage.storage().reference().child("\(imageUID).png")
+            let storageReference = FIRStorage.storage().reference().child("Users profile images").child("\(imageUID).png")
             
             if self.avatarButton.backgroundImage(for: .normal)! != #imageLiteral(resourceName: "avatar"){
-                if let uploadImage = UIImagePNGRepresentation(self.avatarButton.backgroundImage(for: .normal)!){
+                if let uploadImage = UIImageJPEGRepresentation(self.avatarButton.backgroundImage(for: .normal)!, 0.1){
                     
                     storageReference.put(uploadImage, metadata: nil, completion: { (metadata, error) in
                         if error != nil{
@@ -114,13 +123,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                         //the exact reference where image contains
                         if let imageRef = metadata?.downloadURL()?.absoluteString{
                             let values = ["name" : name, "email" : email, "image" : imageRef]
+                            CurrentUser.uid = uid
+                            CurrentUser.email = email
+                            CurrentUser.name = name
+                            CurrentUser.avatarReference = imageRef
+                            CurrentUser.profileImage = self.avatarButton.backgroundImage(for: .normal)!
                             self.registerUserIntoDataBase(uid: uid, value: values as [String : AnyObject])
-                            self.performSegue(withIdentifier: "Show_App_From_Sign_Up", sender: self)
+                            activityView.stopAnimating()
+                            activityView.removeFromSuperview()
+                            self.startApplication()
                         }
                     })
                 }
             }
             
+
             
         }
     }
@@ -140,22 +157,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         }
     }
     
-    
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
-    }
     
     
     func handleImageChanging(){
@@ -185,6 +186,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         dismiss(animated: true, completion: nil)
     }
     
+    private func startApplication(){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "Initial View Controller") as? SWRevealViewController{
+            present(vc, animated: true, completion: nil)
+        }
+    }
    
     
 }
